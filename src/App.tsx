@@ -16,18 +16,17 @@ function App() {
         <CustomModal
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
-          events={events}
           setEvents={setEvents}
         />
       </div>
-      {events.map((event: any) => {
-          return (
-            <Card title="Event 1" style={{ width: 300 }}>
-              <p>{event.eventName}</p>
-              <p>{event.date}</p>
-            </Card>
-          );
-        })}
+      {events.map((event: any, index: any) => {
+        return (
+          <Card title={`Event ${index}`} style={{ width: 300 }}>
+            <p>{event.eventName}</p>
+            <p>{event.date}</p>
+          </Card>
+        );
+      })}
     </>
   );
 }

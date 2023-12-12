@@ -18,12 +18,10 @@ import { UploadOutlined } from "@ant-design/icons";
 const CustomModal = ({
   isOpen,
   onClose,
-  events,
   setEvents,
 }: {
   isOpen: boolean;
   onClose: () => void;
-  events: any[];
   setEvents: (events: any[]) => void;
 }) => {
   const [form] = Form.useForm();
