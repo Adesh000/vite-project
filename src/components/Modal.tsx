@@ -18,9 +18,13 @@ import { UploadOutlined } from "@ant-design/icons";
 const CustomModal = ({
   isOpen,
   onClose,
+  events,
+  setEvents,
 }: {
   isOpen: boolean;
   onClose: () => void;
+  events: any[];
+  setEvents: (events: any[]) => void;
 }) => {
   const [form] = Form.useForm();
   const [eventName, setEventName] = useState("");
@@ -49,7 +53,12 @@ const CustomModal = ({
   };
 
   const handleFormSubmit = (values: any) => {
-    console.log(values);
+    // console.log(values.date.format("DD-MM-YYYY"));
+    const correctedValues = {
+      ...values,
+      date: values.date.format("DD-MM-YYYY"),
+    };
+    setEvents([correctedValues]);
     onClose();
     form.resetFields();
   };
